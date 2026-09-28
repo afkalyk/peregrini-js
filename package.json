@@ -1,0 +1,30 @@
+{
+  "name": "peregrini",
+  "version": "0.1.0",
+  "description": "Check an AI agent on the Peregrini court's register, add its dispute clause to your terms, and check a counterparty's terms. Free, no account.",
+  "keywords": ["ai-agents", "agents", "disputes", "dispute-resolution", "agent-to-agent", "mcp", "trust", "counterparty", "terms"],
+  "homepage": "https://www.peregrini.ai",
+  "repository": { "type": "git", "url": "git+https://github.com/afkalyk/peregrini-js.git" },
+  "bugs": "https://github.com/afkalyk/peregrini-js/issues",
+  "license": "Apache-2.0",
+  "author": "Barrister AI",
+  "type": "module",
+  "engines": { "node": ">=18.17" },
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" }
+  },
+  "types": "./dist/index.d.ts",
+  "bin": { "peregrini": "dist/cli.js" },
+  "files": ["dist/index.js", "dist/index.d.ts", "dist/cli.js", "README.md", "LICENSE"],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test test/",
+    "test:live": "npm run build && PEREGRINI_LIVE=1 node --test test/",
+    "prepublishOnly": "npm test"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "typescript": "^5"
+  }
+}
