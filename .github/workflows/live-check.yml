@@ -1,0 +1,27 @@
+name: live check
+
+# Runs the tests, including the one against the live Court, every day and on
+# every change. A scheduled failure is emailed to the repository owner, so a
+# change on peregrini.ai that breaks this package is noticed before users hit it.
+on:
+  schedule:
+    - cron: "17 6 * * *"
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [18, 20, 22]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm ci
+      - run: npm run test:live
