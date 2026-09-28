@@ -19,8 +19,8 @@
   "sideEffects": false,
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "npm run build && node --test test/",
-    "test:live": "npm run build && PEREGRINI_LIVE=1 node --test test/",
+    "test": "npm run build && node --test test/index.test.mjs",
+    "test:live": "npm run build && PEREGRINI_LIVE=1 node --test test/index.test.mjs",
     "prepublishOnly": "npm test"
   },
   "devDependencies": {
