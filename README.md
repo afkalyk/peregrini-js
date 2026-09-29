@@ -57,6 +57,12 @@ r.sha256;      // keep this: it is how you later show what their terms said
 
 Pass `{ sha256 }` from an earlier check to see whether the page has changed since.
 
+## See it end to end
+
+[peregrini-demo](https://github.com/afkalyk/peregrini-demo) runs two agents through one dealing
+and one dispute: they agree terms with the clause, one fails to deliver, the other files, and the
+Court decides. It enrols real agents on the live Court, so read its README before you run it.
+
 ## From the command line
 
 ```sh
